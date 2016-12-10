@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="adpi.java.jadaptiveinterface.EvaluateInterface"
+            label="EvaluateInterface"
+            visible="true">
+         <menu
+               id="EvaluateInterfaceMenu"
+               label="Evaluate ">
+         </menu>
+         <action
+               class="adpi.java.jadaptiveinterface.evaluate.actions.EvaluateInterfaceMenu"
+               id="adpi.java.jadaptiveinterface.actions.DefectQuality"
+               label="Defect Quality"
+               menubarPath="EvaluateInterfaceMenu/sampleGroup"
+               tooltip="Disorder Interface">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="adpi.java.jadaptiveinterface"
+            name="Evaluate">
+      </category>
+      <view
+            category="adpi.java.jadaptiveinterface"
+            class="adpi.java.jadaptiveinterface.evaluate.views.Defect_Quality"
+            id="adpi.java.jadaptiveinterface.views.Defect_Quality"
+            name="Defect_Quality"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               id="adpi.java.jadaptiveinterface.views.DisorderInterface"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="adpi.java.jadaptiveinterface.preferences.PropertyManagerPreferencePage"
+            id="adpi.java.jadptiveinterface.preferences.PropertyManagerPreferencePage"
+            name="JAdapativeInterface">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="adpi.java.jadaptiveinterface.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="adi.java.jadptiveinterface.sliceProfile"
+            objectClass="org.eclipse.jdt.core.IMethod">
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.markerAnnotationSpecification">
+      <specification
+            annotationType="	adpi.java.jadaptiveinterface.extractionAnnotation"
+            colorPreferenceKey="extractionAnnotation_color"
+            colorPreferenceValue="192,255,192"
+            highlightPreferenceKey="extractionAnnotation_highlight"
+            includeOnPreferencePage="true"
+            label="Extracted Code"
+            overviewRulerPreferenceKey="extractionAnnotation_overviewRuler"
+            presentationLayer="0"
+            textPreferenceKey="extractionAnnotation_text"
+            verticalRulerPreferenceKey="extractionAnnotation_verticalRuler">
+      </specification>
+   </extension>
+
+</plugin>
